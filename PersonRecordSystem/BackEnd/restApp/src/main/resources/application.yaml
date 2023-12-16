@@ -1,0 +1,16 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/person_database
+    username: root
+    password: root
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
