@@ -14,4 +14,16 @@ public interface PersonService {
     PersonDto updatePersonRecord(Integer personId, PersonDto personDto);
 
     String deletedRecord(Integer personId);
+
+    List<PersonDto> getPersonByFirstName(String firstName);
+
+    List<PersonDto> getPersonByLastName(String lastName);
+
+    List<PersonDto> getPersonByEmail(String email);
+
+    List<PersonDto> getPersonByEmailKeyword(String keyword);
+
+    List<PersonDto> getPersonByContact(String contact);
+
+    List<PersonDto> getPersonByContactKeyNum(String keywordNum);
 }

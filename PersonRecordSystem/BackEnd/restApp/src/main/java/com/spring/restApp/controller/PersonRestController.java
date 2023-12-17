@@ -32,6 +32,40 @@ public class PersonRestController {
         return  new ResponseEntity<>(personDto,HttpStatus.OK);
     }
 
+    @GetMapping("/firstName/{firstName}")
+    public ResponseEntity<List<PersonDto>> getPersonByFirstName(@PathVariable String firstName){
+        List<PersonDto> personDtoList = this.personService.getPersonByFirstName(firstName);
+        return new ResponseEntity<>(personDtoList,HttpStatus.OK);
+    }
+
+    @GetMapping("/lastName/{lastName}")
+    public ResponseEntity<List<PersonDto>> getPersonByLastName(@PathVariable String lastName){
+        List<PersonDto> personDtoList = this.personService.getPersonByLastName(lastName);
+        return new ResponseEntity<>(personDtoList,HttpStatus.OK);
+    }
+    @GetMapping("/email/{email}")
+    public ResponseEntity<List<PersonDto>> getPersonByEmail(@PathVariable String email){
+        List<PersonDto> personDtoList = this.personService.getPersonByEmail(email);
+        return new ResponseEntity<>(personDtoList,HttpStatus.OK);
+    }
+    @GetMapping("/emailLike/{keyword}")
+    public ResponseEntity<List<PersonDto>> getPersonByEmailKeyword(@PathVariable String keyword) {
+        List<PersonDto> personDtoList = this.personService.getPersonByEmailKeyword(keyword);
+        return new ResponseEntity<>(personDtoList, HttpStatus.OK);
+    }
+
+    @GetMapping("/contact/{contact}")
+    public ResponseEntity<List<PersonDto>> getPersonByContact(@PathVariable String contact) {
+        List<PersonDto> personDtoList = this.personService.getPersonByContact(contact);
+        return new ResponseEntity<>(personDtoList, HttpStatus.OK);
+    }
+    @GetMapping("/contactLike/{keywordNum}")
+    public ResponseEntity<List<PersonDto>> getPersonByContactKeyNum(@PathVariable String keywordNum) {
+        List<PersonDto> personDtoList = this.personService.getPersonByContactKeyNum(keywordNum);
+        return new ResponseEntity<>(personDtoList, HttpStatus.OK);
+    }
+
+
     @PostMapping("/")
     public ResponseEntity<PersonDto> addPersonRecord(@RequestBody PersonDto personDto){
         PersonDto saved = this.personService.addPersonRecord(personDto);

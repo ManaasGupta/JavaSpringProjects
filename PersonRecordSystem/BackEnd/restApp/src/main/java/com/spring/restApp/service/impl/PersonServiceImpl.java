@@ -71,4 +71,41 @@ public class PersonServiceImpl implements PersonService {
         this.repo.delete(getRec);
         return "Record Deleted Successfully";
     }
+
+    @Override
+    public List<PersonDto> getPersonByFirstName(String firstName) {
+        List<Person> personList = this.repo.findByFirstName(firstName);
+        return personList.stream().map(person -> mapper.map(person,PersonDto.class)).toList();
+    }
+
+    @Override
+    public List<PersonDto> getPersonByLastName(String lastName) {
+        List<Person> personList = this.repo.findByLastName(lastName);
+        return personList.stream().map(person -> mapper.map(person,PersonDto.class)).toList();
+    }
+
+    @Override
+    public List<PersonDto> getPersonByEmail(String email) {
+        List<Person> personList = this.repo.findByEmail(email);
+        return personList.stream().map(person -> mapper.map(person,PersonDto.class)).toList();
+    }
+
+    @Override
+    public List<PersonDto> getPersonByEmailKeyword(String keyword) {
+        List<Person> personList = this.repo.findByEmailContaining(keyword);
+        return personList.stream().map(person -> mapper.map(person,PersonDto.class)).toList();
+    }
+
+    @Override
+    public List<PersonDto> getPersonByContact(String contact) {
+        List<Person> personList = this.repo.findByContactNumber(contact);
+        return personList.stream().map(person -> mapper.map(person,PersonDto.class)).toList();
+    }
+
+    @Override
+    public List<PersonDto> getPersonByContactKeyNum(String keywordNum) {
+        List<Person> personList = this.repo.findByContactNumberContaining(keywordNum);
+        return personList.stream().map(person -> mapper.map(person,PersonDto.class)).toList();
+    }
+
 }
