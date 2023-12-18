@@ -17,8 +17,13 @@ formEle.addEventListener("submit", ev => {
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
-                    getResultById(data);
+                    if (data.status == false) {
+                        resultNotFound();
+                        console.log("Query retured Zero Results");
+                    } else {
+                        console.log(data);
+                        getResultById(data);
+                    }
                 })
                 .catch(err => {
                     console.error(err);
@@ -30,8 +35,14 @@ formEle.addEventListener("submit", ev => {
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
-                    displayData(data);
+
+                    if (data.length == null || data.length < 1) {
+                        resultNotFound();
+                        console.log("Query retured Zero Results");
+                    } else {
+                        console.log(data);
+                        displayData(data);
+                    }
 
                 })
                 .catch(err => {
@@ -43,8 +54,13 @@ formEle.addEventListener("submit", ev => {
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
-                    displayData(data);
+                    if (data.length == null || data.length < 1) {
+                        resultNotFound();
+                        console.log("Query retured Zero Results");
+                    } else {
+                        console.log(data);
+                        displayData(data);
+                    }
                 })
                 .catch(err => {
                     console.error(err);
@@ -55,8 +71,13 @@ formEle.addEventListener("submit", ev => {
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
-                    displayData(data);
+                    if (data.length == null || data.length < 1) {
+                        resultNotFound();
+                        console.log("Query retured Zero Results");
+                    } else {
+                        console.log(data);
+                        displayData(data);
+                    }
                 })
                 .catch(err => {
                     console.error(err);
@@ -67,8 +88,13 @@ formEle.addEventListener("submit", ev => {
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
-                    displayData(data);
+                    if (data.length == null || data.length < 1) {
+                        resultNotFound();
+                        console.log("Query retured Zero Results");
+                    } else {
+                        console.log(data);
+                        displayData(data);
+                    }
                 })
                 .catch(err => {
                     console.error(err);
@@ -128,6 +154,11 @@ function clearTable() {
     const tableBody = document.getElementById("tableBody");
     tableBody.innerHTML = ""; // Clear table content
     console.log("Table cleared!");
+
+    const hiddenParagraph = document.getElementById("hiddenPara")
+    hiddenParagraph.classList.remove("d-block")
+    hiddenParagraph.classList.add("d-none")
+
 }
 
 function getResultById(data) {
@@ -155,4 +186,15 @@ function getResultById(data) {
 
     // addig row to tbody
     tableBody.appendChild(row);
+}
+
+function resultNotFound() {
+    const hiddenBlock = document.getElementById("hiddenInfo")
+    hiddenBlock.classList.add("d-none")
+    const tableBody = document.getElementById("tableBody");
+    tableBody.innerHTML = ""; // Clear table content
+    const hiddenParagraph = document.getElementById("hiddenPara")
+    hiddenParagraph.classList.add("d-block");
+    hiddenParagraph.classList.remove("d-none");
+    hiddenParagraph.textContent = "Records Not Found";
 }

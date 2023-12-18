@@ -39,3 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 })
 
+const homeButton = document.getElementById("returnHome");
+homeButton.addEventListener("click", returnHome)
+function returnHome() {
+    window.location.href = "http://localhost:5500/index.html"
+}
