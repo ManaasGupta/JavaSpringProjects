@@ -20,4 +20,9 @@ public class GlobalExceptionHandler {
         ExceptionResponse response = new ExceptionResponse(ex.getMessage()+"\n Enter correct argument type",false);
         return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(value = Exception.class)
+    protected ResponseEntity<ExceptionResponse> RuntimeExceptionExceptionHandler(Exception ex){
+        ExceptionResponse response = new ExceptionResponse(ex.getMessage()+"\n No Records Found",false);
+        return new ResponseEntity<>(response,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
