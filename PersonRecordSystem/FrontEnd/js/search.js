@@ -36,17 +36,19 @@ formEle.addEventListener("submit", ev => {
                 .then(res => res.json())
                 .then(data => {
 
-                    if (data.length == null || data.length < 1) {
+                    if (data.length == 0) {
                         resultNotFound();
-                        console.log("Query retured Zero Results");
                     } else {
+
+
                         console.log(data);
                         displayData(data);
                     }
+                }
 
-                })
+                )
                 .catch(err => {
-                    console.error(err);
+                    console.log(er);
                 });
             break;
         case "lastName":
@@ -54,14 +56,17 @@ formEle.addEventListener("submit", ev => {
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(data => {
-                    if (data.length == null || data.length < 1) {
+
+                    if (data.length == 0) {
                         resultNotFound();
-                        console.log("Query retured Zero Results");
                     } else {
+
+
                         console.log(data);
                         displayData(data);
                     }
-                })
+                }
+                )
                 .catch(err => {
                     console.error(err);
                 });
@@ -71,14 +76,17 @@ formEle.addEventListener("submit", ev => {
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(data => {
-                    if (data.length == null || data.length < 1) {
+
+                    if (data.length == 0) {
                         resultNotFound();
-                        console.log("Query retured Zero Results");
                     } else {
+
+
                         console.log(data);
                         displayData(data);
                     }
-                })
+                }
+                )
                 .catch(err => {
                     console.error(err);
                 });
@@ -88,14 +96,17 @@ formEle.addEventListener("submit", ev => {
             fetch(apiUrl)
                 .then(res => res.json())
                 .then(data => {
-                    if (data.length == null || data.length < 1) {
+
+                    if (data.length == 0) {
                         resultNotFound();
-                        console.log("Query retured Zero Results");
                     } else {
+
+
                         console.log(data);
                         displayData(data);
                     }
-                })
+                }
+                )
                 .catch(err => {
                     console.error(err);
                 });
