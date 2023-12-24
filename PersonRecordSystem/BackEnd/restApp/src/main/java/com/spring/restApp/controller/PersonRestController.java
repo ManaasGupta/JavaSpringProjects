@@ -1,6 +1,6 @@
 package com.spring.restApp.controller;
 
-import com.spring.restApp.dto.ApiResponse;
+import com.spring.restApp.model.ApiResponse;
 import com.spring.restApp.dto.PersonDto;
 import com.spring.restApp.service.PersonService;
 import org.modelmapper.ModelMapper;
@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController

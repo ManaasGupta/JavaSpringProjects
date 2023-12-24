@@ -1,30 +1,24 @@
-package com.spring.restApp.dto;
+package com.spring.restApp.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class ApiResponse<T> {
+public class ExceptionResponse{
     private String timeStamp= getCurrentTimestamp();
-    private HttpStatus httpStatus = HttpStatus.OK;
-    private boolean status;
-    private T content;
+    private HttpStatus httpStatus = HttpStatus.NOT_FOUND;
+    private boolean status = false;
     private String message;
 
 
     private String getCurrentTimestamp() {
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
         return now.format(formatter);
     }
 }
