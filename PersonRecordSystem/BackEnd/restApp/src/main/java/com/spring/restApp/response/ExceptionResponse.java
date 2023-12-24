@@ -1,4 +1,4 @@
-package com.spring.restApp.model;
+package com.spring.restApp.response;
 
 import lombok.Getter;
 import lombok.Setter;

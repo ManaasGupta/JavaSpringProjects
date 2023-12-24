@@ -1,6 +1,6 @@
 package com.spring.restApp.controller;
 
-import com.spring.restApp.model.ApiResponse;
+import com.spring.restApp.response.ApiResponse;
 import com.spring.restApp.dto.PersonDto;
 import com.spring.restApp.service.PersonService;
 import org.modelmapper.ModelMapper;
@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -33,12 +34,12 @@ public class PersonRestController {
     }
 
     @GetMapping("/{personId}")
-    public ResponseEntity<ApiResponse<PersonDto>> getPerson(@PathVariable Integer personId){
+    public ResponseEntity<ApiResponse<List<PersonDto>>> getPerson(@PathVariable Integer personId){
         PersonDto personDto = this.personService.getPerson(personId);
-        ApiResponse<PersonDto> apiResponse = new ApiResponse<>();
+        ApiResponse<List<PersonDto>> apiResponse = new ApiResponse<>();
         apiResponse.setStatus(true);
         apiResponse.setMessage("Record of Person ID: "+personId);
-        apiResponse.setContent(personDto);
+        apiResponse.setContent(Collections.singletonList(personDto));
         return  new ResponseEntity<>(apiResponse,HttpStatus.OK);
     }
 

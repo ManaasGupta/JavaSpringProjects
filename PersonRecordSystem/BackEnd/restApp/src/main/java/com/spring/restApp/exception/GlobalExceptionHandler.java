@@ -1,6 +1,6 @@
 package com.spring.restApp.exception;
 
-import com.spring.restApp.model.ExceptionResponse;
+import com.spring.restApp.response.ExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
