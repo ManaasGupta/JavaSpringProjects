@@ -33,3 +33,8 @@ const homeButton = document.getElementById("returnHome");
 homeButton.addEventListener("click", () => {
     window.location.href = "http://127.0.0.1:5500/index.html"
 })
+
+const searchPage = document.getElementById("search");
+searchPage.addEventListener("click", () => {
+    window.location.href = "http://127.0.0.1:5500/search.html"
+})

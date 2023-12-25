@@ -3,6 +3,12 @@ const myForm = document.getElementById("myform");
 myForm.addEventListener("submit", (ev) => {
     ev.preventDefault();
 
+
+    const hiddenParagraph = document.getElementById("hiddenPara");
+    hiddenParagraph.classList.add("d-none");
+    hiddenParagraph.classList.remove("d-show");
+    hiddenParagraph.textContent = ""
+
     const selectedOption = document.getElementById("sort").value;
     const optionValue = document.getElementById("myInput").value;
 
@@ -39,6 +45,7 @@ function fetchFromApi(url, optionValue) {
     fetch(url + optionValue)
         .then(response => {
             if (!response.ok) {
+                hiddenPara();
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             return response.json();
@@ -91,6 +98,9 @@ function showResults() {
     const table = document.getElementById("hiddenInfo");
     table.classList.add("d-show");
     table.classList.remove("d-none");
+
+    const resultTable = document.getElementById("resultTable");
+    resultTable.classList.remove("d-none");
 }
 
 
@@ -99,6 +109,11 @@ clearResults.addEventListener("click", () => {
     const table = document.getElementById("hiddenInfo");
     table.classList.add("d-none");
     table.classList.remove("d-show");
+
+    const hiddenParagraph = document.getElementById("hiddenPara");
+    hiddenParagraph.classList.add("d-none");
+    hiddenParagraph.classList.remove("d-show");
+    hiddenParagraph.textContent = ""
 })
 
 
@@ -106,3 +121,13 @@ const homeButton = document.getElementById("returnHome");
 homeButton.addEventListener("click", () => {
     window.location.href = "http://127.0.0.1:5500/index.html"
 })
+
+function hiddenPara() {
+    const hiddenParagraph = document.getElementById("hiddenPara");
+    hiddenParagraph.classList.remove("d-none");
+    hiddenParagraph.classList.add("d-show");
+    hiddenParagraph.textContent = "No Records found"
+
+    const resultTable = document.getElementById("resultTable");
+    resultTable.classList.add("d-none");
+}

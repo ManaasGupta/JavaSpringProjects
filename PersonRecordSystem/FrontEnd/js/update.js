@@ -43,3 +43,8 @@ hideMessage.addEventListener('click', () => {
     hiddenMessage.classList.add("d-none");
     hiddenMessage.classList.remove("d-show");
 })
+
+const searchPage = document.getElementById("search");
+searchPage.addEventListener("click", () => {
+    window.location.href = "http://127.0.0.1:5500/search.html"
+})
